@@ -4,6 +4,7 @@ regions:
 hostnames:
   - dns-name
 filters:
+  tag:Ansible: managed
   instance-state-name: running
 compose:
   ansible_host: public_ip_address
