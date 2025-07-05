@@ -1,0 +1,34 @@
+---
+- name: Manage web servers on test and prod
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Install httpd (only on test)
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+      when: "'test' in group_names"
+
+    - name: Install tomcat (only on prod)
+      ansible.builtin.yum:
+        name: ansible
+        state: present
+      when: "'prod' in group_names"
+
+    - name: Wait 10 seconds before uninstall
+      ansible.builtin.pause:
+        seconds: 10
+
+    - name: Remove httpd (only on test)
+      ansible.builtin.yum:
+        name: httpd
+        state: absent
+      when: "'test' in group_names"
+
+    - name: Remove tomcat (only on prod)
+      ansible.builtin.yum:
+        name: ansible
+        state: absent
+      when: "'prod' in group_names"
+
