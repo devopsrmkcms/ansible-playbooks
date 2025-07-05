@@ -1,6 +1,6 @@
 plugin: amazon.aws.aws_ec2
 aws_access_key: AKIA356SJRF5JZQ6C7
-aws_sceret_key: 5bjtMjjU1MWL3fD0pLhRW3SqbuLUFXqHFIHSjgMw
+aws_secret_key: 5bjtMjjU1MWL3fD0pLhRW3SqbuLUFXqHFIHSjgMw
 regions:
   - ap-south-1            # Replace with your AWS region
 hostnames:
